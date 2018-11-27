@@ -11,3 +11,16 @@ SID:     7867034
 Email:   hshwa039@uottawa.ca
 File Number C of X
 ******************************/
+
+#ifndef DECK
+#define DECK
+
+
+class Deck<C> {    
+    void Shuffle() = 0;
+	C* getNext() = 0;
+	bool isEmpty () = 0;
+};
+
+
+#endif
