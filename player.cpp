@@ -28,9 +28,8 @@ Player::Player() {
     
 
 // Constructor
-Player::Player(string name, Side sideOfBoard) {
+Player::Player(string name) {
     this->name = name;
-    this->sideOfBoard = sideOfBoard;
     rubies = 0;
     endOfGame = false;
 }

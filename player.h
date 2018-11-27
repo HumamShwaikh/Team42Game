@@ -41,7 +41,7 @@ class Player {
     Player();
     
     // Constructor
-    Player(string, Side);
+    Player(string);
     
     // Get the player's name as a string
     string getName() const;
