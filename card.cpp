@@ -24,6 +24,7 @@ Card::Card(FaceAnimal a, FaceBackground b) {
 	background = b;
 }
 
+// Returns a character representing the animal - for use in card printing
 char Card::getAnimalChar() const {
     char an;
     switch(animal) {
@@ -43,11 +44,12 @@ char Card::getAnimalChar() const {
             an = 'W';
             break;
         default:
-            an = '#';
+            an = '#'; // If you see this printed, there was an error somewhere
     }
     return an;
 }
 
+// Returns a character representing the background - for use in card printing
 char Card::getBackgroundChar() const {
     char bg;
     switch(background) {
@@ -67,27 +69,31 @@ char Card::getBackgroundChar() const {
             bg = 'y';
             break;
         default:
-            bg = '%';
+            bg = '%'; // If you see this printed, there was an error somewhere
     }
     return bg;
 }
 
+// Overloading the function call operator. Prints the row corresponding to the argument
 string Card::operator()(int row) {
-    string currentRow;
+     // First element is always same, also must be cast to string to be able to use "+"
+    string currentRow = string(1,getBackgroundChar());
     switch(row) {
-        case 1:
-            currentRow = string(1,getBackgroundChar()) + getBackgroundChar() + getBackgroundChar();
+        case 1: // If first row, print background colour in middle
+            currentRow += getBackgroundChar();
             break;
-        case 2:
-            currentRow = string(1,getBackgroundChar()) + getAnimalChar() + getBackgroundChar();
+        case 2: // If second row, print animal in middle
+            currentRow += getAnimalChar();
             break;
-        case 3:
-            currentRow = string(1,getBackgroundChar()) + getBackgroundChar() + getBackgroundChar();
+        case 3: // If third row, print background colour in middle
+            currentRow += getBackgroundChar();
             break;
         default:
             currentRow = "zzz";
             break;
     }
+    // Last element is always same
+    currentRow += getBackgroundChar();
     return currentRow;
 }
 

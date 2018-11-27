@@ -24,7 +24,7 @@ File Number 3 of X
 #include <string>
 
 class RewardDeck;
-
+ 
 class Reward {
     
     public:
@@ -34,16 +34,17 @@ class Reward {
     
     private:
     
-    Reward();
-    
+    // Privatr constructor
     Reward(int value);
     
+    // Private copy constructor to block copy and assignment
     Reward& operator=(const Reward&);
     
+    // Holds the value of the reward
     int value;
     
+    // Friend declarations and output stream operator overloading
     friend RewardDeck;
-    
     friend std::ostream& operator<<(std::ostream& os, const Reward& r) {
         os << std::to_string(r.value);
         return os;

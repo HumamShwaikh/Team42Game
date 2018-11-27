@@ -21,17 +21,22 @@ using std::string;
 
 class Card {    
     
+    // Enumerations for Animals and Bacground Colours
 	enum FaceAnimal {Crab, Penguin, Octopus, Turtle, Walrus};
 	enum FaceBackground {Red, Green, Purple, Blue, Yellow};
 	
+    // Global variable holding one of the enum values for each
 	FaceAnimal animal;
 	FaceBackground background;
     
+    // Constructor
 	Card(FaceAnimal a, FaceBackground b);
     
+    // Operator overloading for printing and to block copy and assignment (private)
     Card& operator=(const Card&); // Private copy constructor
     string operator()(int);
     
+    // Two private getters to convert enums to chars
     char getAnimalChar() const;
     char getBackgroundChar() const;
 };

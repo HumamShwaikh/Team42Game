@@ -69,8 +69,10 @@ class Player {
     
     private:
     
+    // Return the player's status (no public use)
     string getStatus() const;
     
+    // Convert Side enum to its string value
     string getSideAsString() const;
     
     string name;            // Stores player's name
@@ -85,10 +87,11 @@ class Player {
     
     int rubies;             // Stores player's score
     
+    // Overloading the output stream operator based on game status
     friend std::ostream& operator<<(std::ostream& os, const Player& p) {
-        if (p.endOfGame) {
+        if (p.endOfGame) {  // If game is over, shows score
             os << p.name + ": " + std::to_string(p.getNRubies()) + " rubies\n";
-        } else {
+        } else {            // If game not over, shows Side and active status
             os << p.name + ": " + p.getSideAsString() + " (" + p.getStatus() + ")\n";
         }
         return os;

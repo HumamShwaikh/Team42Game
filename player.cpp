@@ -43,7 +43,7 @@ Player::Player(string name) {
 // Get the player's side of the board as a string
 string Player::getSideAsString() const {
     string side;
-    switch(sideOfBoard) {
+    switch(sideOfBoard) {   // Translates the enum to a string
         case top:
         side = "top";
         break;
@@ -78,24 +78,20 @@ void Player::setActive(bool active) {
     status = active;
 }
 
-
 // Get the current status of the player
 bool Player::isActive() {
     return status;
 }
-    
 
 // Get the current score of the player
 int Player::getNRubies() const {
     return rubies;
 }
-    
 
 // Increase the score of the player
 void Player::addReward(const Reward& reward) {
     rubies += reward.getRewardValue();
 }
-    
 
 // Set Player's display mode
 void Player::setDisplayMode(bool endOfGame) {
