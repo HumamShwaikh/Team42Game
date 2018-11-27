@@ -26,9 +26,14 @@ class Card {
 	
 	FaceAnimal animal;
 	FaceBackground background;
-	
+    
 	Card(FaceAnimal a, FaceBackground b);
-
+    
+    Card& operator=(const Card&); // Private copy constructor
+    string operator()(int);
+    
+    char getAnimalChar() const;
+    char getBackgroundChar() const;
 };
 
 

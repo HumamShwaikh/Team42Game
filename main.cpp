@@ -37,7 +37,7 @@ int main() {
                     "[1] Basic    [2] Expert Display    [3] Expert Rules    [4] Combined Expert" << std::endl;
     
     int gameMode;
-    while(gameMode < 1 || gameMode > 4) {   // Verify input
+    while(gameMode < 1 || gameMode > 4) {   // Wait for correct input
         std::cin >> gameMode;
     }
     
@@ -70,7 +70,7 @@ int main() {
     std::cout << " mode selected. Please enter the number of players (2-4):" << std::endl;
     
     int numPlayers;
-    while(numPlayers < 2 || numPlayers > 4) {   // Verify input
+    while(numPlayers < 2 || numPlayers > 4) {   // Wait for correct input
         std::cin >> numPlayers;
     }
     
@@ -86,6 +86,13 @@ int main() {
     
     // ************************ [TODO: Game implementation] ************************
     
-    std::cout << "Program terminated. No further implementation has been provided (end of main() reached).";
+    
+    // Card declaration and print testing (must change Card class to STRUCT to use!)
+    //Card c(Card::Crab, Card::Yellow);
+    //std::cout << c(1) << std::endl;
+    //std::cout << c(2) << std::endl;
+    //std::cout << c(3) << std::endl;
+    
+    std::cout << "Program terminated. No further implementation has been provided (end of main() reached)." << std::endl;
     return 0;
 }
