@@ -14,18 +14,19 @@ Name:    Humam Shwaikh
 SID:     7867034
 Email:   hshwa039@uottawa.ca
 
-File Number 5 of X
+File Number 8 of X
 
 ******************************/
 
-#include "reward.h"
+#ifndef BOARD
+#define BOARD
 
-Reward::Reward(int value) {
-    this->value = value;
+class Board {
+    
+    enum Number {1, 2, 3, 4, 5};
+    enum Letter {A, B, C, D, E};
+    
+    bool isFaceUp(const Letter&, const Number&);
 }
 
-int Reward::getRewardValue() const {
-    return value;
-}
-
-
+#endif

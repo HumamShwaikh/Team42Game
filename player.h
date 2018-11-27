@@ -22,10 +22,9 @@ File Number 2 of X
 #define PLAYER
 
 #include <string>
+#include "reward.h"
 
 using std::string;
-
-class Reward;
 
 enum Side {
     top,
@@ -60,7 +59,7 @@ class Player {
     bool isActive();
     
     // Get the current score of the player
-    int getNRubies();
+    int getNRubies() const;
     
     // Increase the score of the player
     void addReward(const Reward&);
@@ -74,21 +73,24 @@ class Player {
     
     string getSideAsString() const;
     
-    string name;          // Stores player's name
+    string name;            // Stores player's name
     
-    Side side;            // Stores player's side
+    Side side;              // Stores player's side
     
-    bool status;          // Stores player's status
+    bool status;            // Stores player's status
     
-    bool endOfGame;       // Changes display mode of player based on game status
+    bool endOfGame;         // Changes display mode of player based on game status
     
-    Side sideOfBoard;     // Stores player's location
+    Side sideOfBoard;       // Stores player's location
     
-    int rubies;           // Stores player's score
+    int rubies;             // Stores player's score
     
-    // TODO: Implement this to print differently depending on game status
     friend std::ostream& operator<<(std::ostream& os, const Player& p) {
-        os << p.name + ": " + p.getSideAsString() + " (" + p.getStatus() + ")\n";
+        if (p.endOfGame) {
+            os << p.name + ": " + std::to_string(p.getNRubies()) + " rubies\n";
+        } else {
+            os << p.name + ": " + p.getSideAsString() + " (" + p.getStatus() + ")\n";
+        }
         return os;
     }
 };

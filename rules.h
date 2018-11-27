@@ -14,18 +14,27 @@ Name:    Humam Shwaikh
 SID:     7867034
 Email:   hshwa039@uottawa.ca
 
-File Number 5 of X
+File Number 6 of X
 
 ******************************/
 
-#include "reward.h"
+#ifndef RULES
+#define RULES
 
-Reward::Reward(int value) {
-    this->value = value;
-}
+class Game;
 
-int Reward::getRewardValue() const {
-    return value;
-}
+class Rules {
+    
+    public:
+    
+    bool isValid(const Game&);
+    
+    bool gameOver(const Game&);
+    
+    bool roundOver(const Game&);
+    
+    const Player& Rules::getNextPlayer(const Game&);
+    
+};
 
-
+#endif

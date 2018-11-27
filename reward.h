@@ -21,9 +21,16 @@ File Number 3 of X
 #ifndef REWARD
 #define REWARD
 
+#include <string>
+
 class RewardDeck;
 
 class Reward {
+    
+    public:
+    
+    // Returns the value of the reward
+    int getRewardValue() const;
     
     private:
     

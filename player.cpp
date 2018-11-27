@@ -87,14 +87,14 @@ bool Player::isActive() {
     
 
 // Get the current score of the player
-int Player::getNRubies() {
+int Player::getNRubies() const {
     return rubies;
 }
     
 
 // Increase the score of the player
 void Player::addReward(const Reward& reward) {
-    
+    rubies += reward.getRewardValue();
 }
     
 
