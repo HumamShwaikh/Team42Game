@@ -41,12 +41,33 @@ int main() {
         std::cin >> gameMode;
     }
     
-    // ************************ [TODO: Handle game mode selection] ************************
+    switch(gameMode) {
+        case 1:
+        // ***************** [TODO: Set up basic rules] ******************
+        std::cout << "Basic";
+        break;
+        case 2:
+        // ***************** [TODO: Set up expert display rules] ******************
+        std::cout << "Expert Display";
+        break;
+        case 3:
+        // ***************** [TODO: Set up expert rules rules] ******************
+        std::cout << "Expert Rules";
+        break;
+        case 4:
+        // ***************** [TODO: Set up combined expert rules] ******************
+        std::cout << "Combined Expert";
+        break;
+        default:
+        // ***************** [TODO: Set up basic rules] ******************
+        std::cout << "Basic";
+        break;
+    }
     
     
     // ============================ Get Number of Players ============================
     
-    std::cout << "[INSERT NAME] mode selected. Please enter the number of players (2-4):" << std::endl;
+    std::cout << " mode selected. Please enter the number of players (2-4):" << std::endl;
     
     int numPlayers;
     while(numPlayers < 2 || numPlayers > 4) {   // Verify input
@@ -65,5 +86,6 @@ int main() {
     
     // ************************ [TODO: Game implementation] ************************
     
+    std::cout << "Program terminated. No further implementation has been provided (end of main() reached).";
     return 0;
 }
