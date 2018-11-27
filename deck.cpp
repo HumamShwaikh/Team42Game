@@ -17,6 +17,8 @@ File Number C of X
 
 
 class Deck<C> {    
+	C* begin = 0;
+public:
     void Shuffle() = 0;
 	C* getNext() = 0;
 	bool isEmpty () = 0;
