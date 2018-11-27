@@ -7,7 +7,7 @@ Name:    Matthew Smith
 SID:     7650838
 Email:   msmit245@uottawa.ca
 Name:    Humam Shwaikh
-SID:     7867034
+SID:     7867034 
 Email:   hshwa039@uottawa.ca
 File Number C of X
 ******************************/
