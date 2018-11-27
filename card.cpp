@@ -14,18 +14,14 @@ File Number C of X
 
 
 #include <string>
+#include "card.h"
 
 using std::string;
-
-class Card {
-    enum FaceAnimal {Crab, Penguin, Octopus, Turtle, Walrus};
-	enum FaceBackground {Red, Green, Purple, Blue, Yellow};
 	
-	Card(FaceAnimal a, FaceBackground b) {
-		animal = FaceAnimal.a;
-		background = FaceBackground.b;
-	}
+Card::Card(FaceAnimal a, FaceBackground b) {
+	animal = a;
+	background = b;
+}
 
-};
 
 

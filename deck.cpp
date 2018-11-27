@@ -12,17 +12,14 @@ Email:   hshwa039@uottawa.ca
 File Number C of X
 ******************************/
 
-#ifndef DECK
-#define DECK
 
+template<typename C>
 
-class Deck<C> {    
-	C* begin = 0;
+class Deck {    
+	C* top;
 public:
-    void Shuffle() = 0;
-	C* getNext() = 0;
-	bool isEmpty () = 0;
+    virtual void Shuffle();
+	virtual C* getNext();
+	virtual bool isEmpty();
 };
 
-
-#endif
