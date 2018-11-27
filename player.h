@@ -27,6 +27,13 @@ using std::string;
 
 class Reward;
 
+enum Side {
+    top,
+    bottom,
+    left,
+    right
+};
+
 class Player {
     
     public:
@@ -38,7 +45,10 @@ class Player {
     Player(string name, char sideOfBoard);
     
     // Get the player's name as a string
-    string getName();
+    string getName() const;
+    
+    // Get the player's Side
+    Side getSide();
     
     // Function to set the active status of the player
     void setActive(bool active);
@@ -55,11 +65,13 @@ class Player {
     // Set Player's display mode
     void setDisplayMode(bool endOfGame);
     
-    friend std::ostream& operator<<(std::ostream&, const Player&);
-    
     private:
     
+    string getStatus() const;
+    
     string name;          // Stores player's name
+    
+    Side side;            // Stores player's side
     
     bool status;          // Stores player's status
     
@@ -68,11 +80,11 @@ class Player {
     char sideOfBoard;     // Stores player's location
     
     int rubies;           // Stores player's score
+    
+    friend std::ostream& operator<<(std::ostream& os, const Player& p) {
+        os << p.name + ": " + p.sideOfBoard + " (" + p.getStatus() + ")\n";
+        return os;
+    }
 };
 
 #endif
-
-inline std::ostream& operator<<(std::ostream& os, const Player& p) {
-    os << p.name << ": " << p.sideOfBoard << " (" << p.status << ")\n";
-    return os;
-}

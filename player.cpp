@@ -20,6 +20,7 @@ File Number 4 of X
 
 #include "player.h"
 
+
 // Default constructor
 Player::Player() {
     
@@ -36,10 +37,14 @@ Player::Player(string name, char sideOfBoard) {
    
 
 // Get the player's name as a string
- string Player::getName() {
+ string Player::getName() const {
     return name;
 }
-    
+
+// Get the player's name as a string
+Side Player::getSide() {
+    return side;
+}  
 
 // Function to set the active status of the player
 void Player::setActive(bool active) {
@@ -68,4 +73,9 @@ void Player::addReward(const Reward& reward) {
 // Set Player's display mode
 void Player::setDisplayMode(bool endOfGame) {
     this->endOfGame = endOfGame;
+}
+
+// Return the player's status as a string
+string Player::getStatus() const {
+    return status ? "active" : "inactive";
 }
