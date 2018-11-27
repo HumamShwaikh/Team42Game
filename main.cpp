@@ -19,11 +19,11 @@ File Number 1 of X
 ******************************/
 
 #include "player.h"
+#include "card.h"
 #include "reward.h"
 
 
 int main() {
-    
     
     return 0;
 }
