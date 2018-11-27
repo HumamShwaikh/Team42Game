@@ -55,6 +55,8 @@ class Player {
     // Set Player's display mode
     void setDisplayMode(bool endOfGame);
     
+    friend std::ostream& operator<<(std::ostream&, const Player&);
+    
     private:
     
     string name;          // Stores player's name
@@ -66,11 +68,11 @@ class Player {
     char sideOfBoard;     // Stores player's location
     
     int rubies;           // Stores player's score
-    
-    friend std::ostream& operator<<( std::ostream&, const Player& );
 };
 
-
-
-
 #endif
+
+inline std::ostream& operator<<(std::ostream& os, const Player& p) {
+    os << p.name << ": " << p.sideOfBoard << " (" << p.status << ")\n";
+    return os;
+}

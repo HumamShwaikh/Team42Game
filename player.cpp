@@ -20,8 +20,6 @@ File Number 4 of X
 
 #include "player.h"
 
-std::ostream& operator<<( std::ostream&, const Player& );
-
 // Default constructor
 Player::Player() {
     
@@ -45,9 +43,9 @@ Player::Player(string name, char sideOfBoard) {
 
 // Function to set the active status of the player
 void Player::setActive(bool active) {
-    
+    status = active;
 }
-    
+
 
 // Get the current status of the player
 bool Player::isActive() {
@@ -71,9 +69,3 @@ void Player::addReward(const Reward& reward) {
 void Player::setDisplayMode(bool endOfGame) {
     this->endOfGame = endOfGame;
 }
-
-/*
-std::ostream& operator<<(std::ostream& os, const Player& p) {
-    return os << p.name;
-}
-*/
