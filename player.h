@@ -42,7 +42,7 @@ class Player {
     Player();
     
     // Constructor
-    Player(string name, char sideOfBoard);
+    Player(string, Side);
     
     // Get the player's name as a string
     string getName() const;
@@ -50,8 +50,11 @@ class Player {
     // Get the player's Side
     Side getSide();
     
+    // Set the player's Side
+    void setSide(Side);
+    
     // Function to set the active status of the player
-    void setActive(bool active);
+    void setActive(bool);
     
     // Get the current status of the player
     bool isActive();
@@ -60,14 +63,16 @@ class Player {
     int getNRubies();
     
     // Increase the score of the player
-    void addReward(const Reward& reward);
+    void addReward(const Reward&);
     
     // Set Player's display mode
-    void setDisplayMode(bool endOfGame);
+    void setDisplayMode(bool);
     
     private:
     
     string getStatus() const;
+    
+    string getSideAsString() const;
     
     string name;          // Stores player's name
     
@@ -77,12 +82,13 @@ class Player {
     
     bool endOfGame;       // Changes display mode of player based on game status
     
-    char sideOfBoard;     // Stores player's location
+    Side sideOfBoard;     // Stores player's location
     
     int rubies;           // Stores player's score
     
+    // TODO: Implement this to print differently depending on game status
     friend std::ostream& operator<<(std::ostream& os, const Player& p) {
-        os << p.name + ": " + p.sideOfBoard + " (" + p.getStatus() + ")\n";
+        os << p.name + ": " + p.getSideAsString() + " (" + p.getStatus() + ")\n";
         return os;
     }
 };

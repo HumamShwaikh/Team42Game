@@ -14,15 +14,14 @@ Name:    Humam Shwaikh
 SID:     7867034
 Email:   hshwa039@uottawa.ca
 
-File Number 1 of X
+File Number 4 of X
 
 ******************************/
 
-#include "player.h"
 #include "reward.h"
 
-
-int main() {
-    
-    return 0;
+Reward::Reward(int value) {
+    this->value = value;
 }
+
+

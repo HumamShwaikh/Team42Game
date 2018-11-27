@@ -21,11 +21,26 @@ File Number 3 of X
 #ifndef REWARD
 #define REWARD
 
+class RewardDeck;
+
 class Reward {
     
-    public:
-    
     private:
+    
+    Reward();
+    
+    Reward(int value);
+    
+    Reward& operator=(const Reward&);
+    
+    int value;
+    
+    friend RewardDeck;
+    
+    friend std::ostream& operator<<(std::ostream& os, const Reward& r) {
+        os << std::to_string(r.value);
+        return os;
+    }
     
 };
 
