@@ -22,6 +22,7 @@ File Number 8 of X
 #define BOARD
 
 #include <string>
+#include <array>
 #include "card.h"
 
 class Board {
@@ -53,23 +54,24 @@ class Board {
     static char getRow(const Letter&);
     static char getCol(const Number&);
     
-    static string board[19];
+    string *board;
     
     friend std::ostream& operator<<(std::ostream& os, const Board& b) {
         Letter iterLet = A;         // For printing row indices
         Number iterNum = One;       // For printing column indices at bottom of board
         string st = "";
         for (int i=0; i<19; i++) {
-            if (i%6 == 1) {     // Print the letter corresponding to the row
+            if (i%4 == 1) {     // Print the letter corresponding to the row
                 st += getRow(iterLet);
                 iterLet = static_cast<Letter>(iterLet + 1);   // Go to next value in Letter enum
                 st += " ";          // Add the buffer space after the letter
             } else st += "  ";      // Add two buffer spaces for rows without letter
-            st += board[i] + "\n";  // Print the row of the board
+            st += b.board[i] + "\n";  // Print the row of the board
         }
         st += "\n";                 // Empty line separating bottom column index row
-        for (int j=0; j<21; j++) {  // Column indices
-            if (j%3 == 0) {
+        st += "   ";                // First three empty spaces
+        for (int j=0; j<19; j++) {  // Column indices
+            if (j%4 == 0) {
                 st += getCol(iterNum);
                 iterNum = static_cast<Number>(iterNum + 1);
             } else st += " ";

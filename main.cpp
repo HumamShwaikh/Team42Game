@@ -24,6 +24,7 @@ File Number 1 of X
 #include "player.h"
 #include "card.h"
 #include "reward.h"
+#include "board.h"
 
 
 int main() {
@@ -84,6 +85,8 @@ int main() {
         players.push_back(Player(name));
     }
     
+    std::cout << std::endl;
+    
     // ************************ [TODO: Game implementation] ************************
     
     
@@ -93,6 +96,11 @@ int main() {
     //std::cout << c(2) << std::endl;
     //std::cout << c(3) << std::endl;
     
-    std::cout << "Program terminated. No further implementation has been provided (end of main() reached)." << std::endl;
+    std::cout << "Printing test board: \n" << std::endl; ;
+    
+    Board *bd = new Board();
+    std::cout << *bd;
+    
+    std::cout << "\nProgram terminated. No further implementation has been provided (end of main() reached)." << std::endl;
     return 0;
 }

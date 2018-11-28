@@ -21,7 +21,12 @@ File Number 9 of X
 #include "board.h"
 
 Board::Board() {
-    
+    board = new string[19];
+    for (int i=0; i<19; i++) {
+        if (i%4 == 3) {
+            board[i] = "                   ";
+        } else board[i] = "%%% %%% %%% %%% %%%";
+    }
 }
 
 bool Board::isFaceUp(const Letter& letter, const Number& number) {
