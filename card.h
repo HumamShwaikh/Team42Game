@@ -19,7 +19,9 @@ File Number C of X
 
 using std::string;
 
-class Card {    
+class CardDeck;
+
+class Card {
     
     // Enumerations for Animals and Bacground Colours
 	enum FaceAnimal {Crab, Penguin, Octopus, Turtle, Walrus};
@@ -39,6 +41,8 @@ class Card {
     // Two private getters to convert enums to chars
     char getAnimalChar() const;
     char getBackgroundChar() const;
+    
+    friend CardDeck;
 };
 
 

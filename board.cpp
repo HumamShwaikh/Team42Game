@@ -20,6 +20,10 @@ File Number 9 of X
 
 #include "board.h"
 
+Board::Board() {
+    
+}
+
 bool Board::isFaceUp(const Letter& letter, const Number& number) {
     
     return false;
@@ -46,5 +50,59 @@ void Board::setCard(const Letter& letter, const Number& number, Card* c) {
 }
 
 void Board::reset() {
+    
+}
+
+// Returns a character representing the animal - for use in card printing
+char Board::getRow(const Letter& letter) {
+    char row;
+    switch(letter) {
+        case A:
+            row = 'A';
+            break;
+        case B:
+            row = 'B';
+            break;
+        case C:
+            row = 'C';
+            break;
+        case D:
+            row = 'D';
+            break;
+        case E:
+            row = 'E';
+            break;
+        default:
+            row = '#'; // If you see this printed, there was an error somewhere
+    }
+    return row;
+}
+
+// Returns a character representing the background - for use in card printing
+char Board::getCol(const Number& number) {
+    char col;
+    switch(number) {
+         case One:
+            col = '1';
+            break;
+        case Two:
+            col = '2';
+            break;
+        case Three:
+            col = '3';
+            break;
+        case Four:
+            col = '4';
+            break;
+        case Five:
+            col = '5';
+            break;
+        default:
+            col = '%'; // If you see this printed, there was an error somewhere
+    }
+    return col;
+}
+
+Board::~Board() {
     
 }

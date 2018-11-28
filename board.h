@@ -21,14 +21,17 @@ File Number 8 of X
 #ifndef BOARD
 #define BOARD
 
-#include <array>
+#include <string>
 #include "card.h"
 
 class Board {
     
     public:
     
-    enum Number {One=1, Two=2, Three=3, Four=4, Five=5};
+    Board();
+    ~Board();
+    
+    enum Number {One, Two, Three, Four, Five};
     enum Letter {A, B, C, D, E};
     
     bool isFaceUp(const Letter&, const Number&);
@@ -44,9 +47,34 @@ class Board {
     
     void reset();
     
-    // TODO: Implement
+    private:
+    
+    // Enumerator converters
+    static char getRow(const Letter&);
+    static char getCol(const Number&);
+    
+    static string board[19];
+    
     friend std::ostream& operator<<(std::ostream& os, const Board& b) {
-        //os << std::to_string(r.value);
+        Letter iterLet = A;         // For printing row indices
+        Number iterNum = One;       // For printing column indices at bottom of board
+        string st = "";
+        for (int i=0; i<19; i++) {
+            if (i%6 == 1) {     // Print the letter corresponding to the row
+                st += getRow(iterLet);
+                iterLet = static_cast<Letter>(iterLet + 1);   // Go to next value in Letter enum
+                st += " ";          // Add the buffer space after the letter
+            } else st += "  ";      // Add two buffer spaces for rows without letter
+            st += board[i] + "\n";  // Print the row of the board
+        }
+        st += "\n";                 // Empty line separating bottom column index row
+        for (int j=0; j<21; j++) {  // Column indices
+            if (j%3 == 0) {
+                st += getCol(iterNum);
+                iterNum = static_cast<Number>(iterNum + 1);
+            } else st += " ";
+        }
+        os << st;
         return os;
     }
 };

@@ -30,9 +30,12 @@ int Game::getRound() {
 void Game::nextRound() {
     ++round;
     board.reset();
+    // TODO: finish
 }
 
 void Game::addPlayer(const Player& p) {
+    // ************************ TODO: Check if player is already contained **********************
+    // *************************** If yes, then update instead of adding  ***********************
     players.push_back(p);
 }
 
