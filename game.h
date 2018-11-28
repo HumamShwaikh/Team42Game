@@ -22,9 +22,9 @@ File Number 7 of X
 #define GAME
 
 #include "player.h"
-#include "side.h"
 #include "card.h"
 #include "board.h"
+#include <vector>
 
 class Game {
     
@@ -38,15 +38,26 @@ class Game {
     
     Player& getPlayer(Side);
     
-    const Card* getPreviousCard();
+    // Change return type to <code>Card*</code> when game has Card members
+    void getPreviousCard() const;
     
-    const Card* getCurrentCard();
+    // Change return type to <code>Card*</code> when game has Card members
+    void getCurrentCard() const;
     
     void setCurrentCard(const Card*);
     
-    Card* getCard(const Letter&, const Number&);
+    // Change return type to <code>Card*</code> when game has Card members
+    void getCard(const Board::Letter&, const Board::Number&);
     
-    void setCard(const Letter&, const Number&, Card*);
+    void setCard(const Board::Letter&, const Board::Number&, Card*);
+    
+    private:
+    
+    int round;
+    
+    Board board;
+    
+    std::vector<Player> players;
     
 };
 
