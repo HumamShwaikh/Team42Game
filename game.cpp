@@ -22,6 +22,7 @@ File Number 10 of X
 #include "board.h"
 #include "player.h"
 #include "card.h"
+#include "deck.h"
 
 int Game::getRound() {
     return round;

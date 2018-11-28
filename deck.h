@@ -21,28 +21,44 @@ File Number 11 of X
 #ifndef DECK
 #define DECK
 
-//template<class T>
+template<typename T>
 
 class Deck {  
-
-    class Node {
-        public:
-            Node *next;
-            int content;
-    };
     
-	Node *first;
-    Node *current;
+    std::vector<T> elements;
+    T current;
 
 public:
     
-    Deck();
-/*
-    ~Deck();
-    virtual void shuffle();
-	virtual int getNext();
-	virtual bool isEmpty();
-*/
+    Deck<T>();
+    
+    virtual void shuffle() {
+        std::random_shuffle(elements.begin(), elements.end());
+    }
+    
+	virtual T getNext() {
+        for (auto i = elements.begin(); i < elements.end()-1; ++i) {
+            if (i == current) {
+                ++i;
+                return i;
+            }
+        }
+        return nullptr;
+    }
+	
+    virtual bool isEmpty() {
+        return elements.empty();
+    }
+    
+    ~Deck<T>() {
+        auto temp = elements.begin();
+        for (auto i = elements.begin(); i < elements.end()-1; ++i) {
+            delete temp;
+            temp = i;
+        }
+        delete temp;
+        delete elements;
+    }
 };
 
 #endif
