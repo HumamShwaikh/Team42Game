@@ -1,25 +1,44 @@
 /******************************
+
 Title:   Final Project
 Course:  CSI 2372 A - Fall 2018
 Date:    December 3, 2018
+
 Contributors:
+
 Name:    Matthew Smith
 SID:     7650838
 Email:   msmit245@uottawa.ca
+
 Name:    Humam Shwaikh
 SID:     7867034
 Email:   hshwa039@uottawa.ca
-File Number C of X
+
+File Number 10 of X
+
 ******************************/
 
+#include "deck.h"
 
-template<typename C>
+Deck::Deck() {
+    
+}
 
-class Deck {    
-	C* top;
-public:
-    virtual void Shuffle();
-	virtual C* getNext();
-	virtual bool isEmpty();
-};
+/*
 
+Deck::~Deck() {
+    
+}
+
+bool Deck::isEmpty() {
+    return (first == 0);
+}
+
+int Deck::getNext() {
+    return current->next->content;
+}
+
+void Deck::shuffle() {
+    
+}
+*/
