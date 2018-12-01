@@ -23,17 +23,29 @@ File Number 5 of X
 #include "deck.h"
 #include "card.h"
 
-class CardDeck : Deck<C> {
+class CardDeck : Deck<Card> {
 public:
 	//This function can be called anytime but has to always return the same deck
 	static CardDeck& make_CardDeck();
-	
+    
 private:
-	int size;
+	int size;      //Might be handy to keep track of the deck size
 	Card* top;
 	CardDeck& inPlay;
 	std::vector<Card> elements;
-    T current;
+    Card* current;
+	
+	Deck<T>();
+    
+    void shuffle() {};
+    
+	Card getNext() {};
+	
+    bool isEmpty() {};
+    
+    ~CardDeck() {};
+	
+	
 }
 
 #endif

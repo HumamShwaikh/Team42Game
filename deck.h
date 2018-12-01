@@ -28,35 +28,19 @@ class Deck {
     std::vector<T> elements;
     T current;
 
+	//
+	// All functions in Factory Abstract should be pure virtual
 public:
     
     Deck<T>();
     
     virtual void shuffle() {} =0;
     
-	virtual T getNext() {
-        for (auto i = elements.begin(); i < elements.end()-1; ++i) {
-            if (i == current) {
-                ++i;
-                return i;
-            }
-        }
-        return nullptr;
-    }
+	virtual T getNext() {} =0;
 	
-    virtual bool isEmpty() {
-        return elements.empty();
-    }
+    virtual bool isEmpty() {} =0;
     
-    ~Deck<T>() {
-        auto temp = elements.begin();
-        for (auto i = elements.begin(); i < elements.end()-1; ++i) {
-            delete temp;
-            temp = i;
-        }
-        delete temp;
-        delete elements;
-    }
+    ~Deck<T>() {} =0;
 };
 
 #endif
