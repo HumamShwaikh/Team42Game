@@ -40,7 +40,7 @@ private:
 	
     bool isEmpty();
     
-    ~CardDeck();
+    ~RewardDeck();
     
 };
 

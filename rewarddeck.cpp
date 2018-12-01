@@ -18,18 +18,16 @@ File Number 5 of X
 
 ******************************/
 #include <vectors>
-#include "carddeck.h"
-#include "card.h"
+#include <cstdlib>
+#include "rewarddeck.h"
+#include "reward.h"
 
-static CardDeck& make_CardDeck(){
-    // If a deck doesn't exist, it will make 1 of every card, and then shuffle, otherwise return the current deck
-	if (inPlay == nullptr){
-		for (FaceAnimal i: FaceAnimal.values()) {
-			for (FaceBackground j: FaceBackground.values()){
-				this->elements.insert({i, j});
-			}
+static RewardDeck& make_RewardDeck(){
+    // If a deck doesn't exist, it will make 1 of every Reward, and then shuffle, otherwise return the current deck
+	if (elements == nullptr){
+		for (int i = 0; i < MAX_SIZE; i++) {
+		this->elements.push_back({std::rand() % 100 + 1});
 		}
-		this->shuffle();
 	}
 	return this;
 }
@@ -38,7 +36,7 @@ void shuffle() {
 	std::random_shuffle(elements.begin(), elements.end());
 }
 
-Card getNext() {
+Reward getNext() {
 	if (elements.size() > 0) {
 		return elements.pop_back();
 	}
@@ -49,7 +47,7 @@ bool isEmpty() {
 	return elements.empty();
 }
 
-~CardDeck() {
+~RewardDeck() {
 	auto temp = elements.begin();
 	for (auto i = elements.begin(); i < elements.end()-1; ++i) {
 		delete temp;

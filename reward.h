@@ -23,7 +23,6 @@ File Number 3 of X
 
 #include <string>
 
-class RewardDeck;
  
 class Reward {
     
@@ -44,7 +43,7 @@ class Reward {
     int value;
     
     // Friend declarations and output stream operator overloading
-    friend RewardDeck;
+    friend class RewardDeck;
     friend std::ostream& operator<<(std::ostream& os, const Reward& r) {
         os << std::to_string(r.value);
         return os;

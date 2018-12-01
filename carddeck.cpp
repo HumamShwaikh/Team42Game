@@ -23,10 +23,10 @@ File Number 5 of X
 
 static CardDeck& make_CardDeck(){
     // If a deck doesn't exist, it will make 1 of every card, and then shuffle, otherwise return the current deck
-	if (inPlay == nullptr){
+	if (elements == nullptr){
 		for (FaceAnimal i: FaceAnimal.values()) {
 			for (FaceBackground j: FaceBackground.values()){
-				this->elements.insert({i, j});
+				this->elements.push_back({i, j});
 			}
 		}
 		this->shuffle();

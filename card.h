@@ -16,9 +16,7 @@ File Number C of X
 #define CARD
 
 #include <string>
-#include "carddeck.h"
 using std::string;
-
 
 class Card {
     
@@ -41,7 +39,7 @@ class Card {
     char getAnimalChar() const;
     char getBackgroundChar() const;
     
-    friend class CardDeck<Card>;
+    friend class CardDeck;
 };
 
 
