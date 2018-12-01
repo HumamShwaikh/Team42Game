@@ -27,7 +27,6 @@ static CardDeck& make_CardDeck(){
 		for (FaceAnimal i: FaceAnimal.values()) {
 			for (FaceBackground j: FaceBackground.values()){
 				this->elements.insert({i, j});
-				this->size++;
 			}
 		}
 		this->shuffle();
@@ -40,11 +39,8 @@ void shuffle() {
 }
 
 Card getNext() {
-	for (Card i = elements.begin(); i < elements.end()-1; ++i) {
-		if (i == current) {
-			++i;
-			return i;
-		}
+	if (elements.size() > 0) {
+		return elements.pop_back();
 	}
 	return nullptr;
 }

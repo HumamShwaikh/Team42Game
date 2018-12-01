@@ -30,9 +30,7 @@ public:
     
 private:
 	const int MAX_SIZE = 25;
-    int size = 0;//Might be handy to keep track of the deck size
 	std::vector<Card> elements;
-    Card* current;
 	
 	Deck<T>();
     
