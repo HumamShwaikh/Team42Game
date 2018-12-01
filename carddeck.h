@@ -29,9 +29,8 @@ public:
 	static CardDeck& make_CardDeck();
     
 private:
-	int size;      //Might be handy to keep track of the deck size
-	Card* top;
-	CardDeck& inPlay;
+	const int MAX_SIZE = 25;
+    int size = 0;//Might be handy to keep track of the deck size
 	std::vector<Card> elements;
     Card* current;
 	
