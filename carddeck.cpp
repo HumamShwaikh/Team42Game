@@ -20,4 +20,11 @@ File Number 5 of X
 
 #include "carddeck.h"
 
+static CardDeck& make_CardDeck(){
+    if (inPlay == null){
+		
+		inPlay == new CardDeck;
+	}
+	return inPlay;
+}
 

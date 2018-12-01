@@ -42,7 +42,7 @@ class Card {
     char getAnimalChar() const;
     char getBackgroundChar() const;
     
-    friend CardDeck;
+    friend class CardDeck;
 };
 
 
