@@ -38,6 +38,8 @@ int main() {
                     "[1] Basic    [2] Expert Display    [3] Expert Rules    [4] Combined Expert" << std::endl;
     
     int gameMode;
+    gameMode = 0;
+    
     while(gameMode < 1 || gameMode > 4) {   // Wait for correct input
         std::cin >> gameMode;
     }
@@ -70,7 +72,7 @@ int main() {
     
     std::cout << " mode selected. Please enter the number of players (2-4):" << std::endl;
     
-    int numPlayers;
+    int numPlayers = 0;
     while(numPlayers < 2 || numPlayers > 4) {   // Wait for correct input
         std::cin >> numPlayers;
     }
