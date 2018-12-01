@@ -41,7 +41,7 @@ class Card {
     char getAnimalChar() const;
     char getBackgroundChar() const;
     
-    friend class CardDeck;
+    friend class CardDeck<Card>;
 };
 
 

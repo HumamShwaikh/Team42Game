@@ -23,26 +23,25 @@ File Number 5 of X
 #include "deck.h"
 #include "card.h"
 
-class CardDeck : Deck<Card> {
+template<typename T>
+
+class CardDeck : Deck<T> {
 public:
 	//This function can be called anytime but has to always return the same deck
 	static CardDeck& make_CardDeck();
     
 private:
 	const int MAX_SIZE = 25;
-	std::vector<Card> elements;
-	
-	Deck<T>();
+	std::vector<T> elements;
+	    
+    void shuffle();
     
-    void shuffle() {};
+	T getNext();
+	
+    bool isEmpty();
     
-	Card getNext() {};
-	
-    bool isEmpty() {};
+    ~CardDeck();
     
-    ~CardDeck() {};
-	
-	
-}
+};
 
 #endif

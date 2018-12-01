@@ -34,13 +34,13 @@ public:
     
     Deck<T>();
     
-    virtual void shuffle() {} =0;
+    virtual void shuffle() =0;
     
-	virtual T getNext() {} =0;
+	virtual T getNext() =0;
 	
-    virtual bool isEmpty() {} =0;
+    virtual bool isEmpty() =0;
     
-    ~Deck<T>() {} =0;
+    ~Deck<T>() =0;
 };
 
 #endif
