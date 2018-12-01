@@ -21,6 +21,7 @@ File Number 5 of X
 #define CARDDECK
 
 #include "deck.h"
+#include "card.h"
 
 class CardDeck : Deck<C> {
 public:
@@ -31,6 +32,8 @@ private:
 	int size;
 	Card* top;
 	CardDeck& inPlay;
+	std::vector<Card> elements;
+    T current;
 }
 
 #endif

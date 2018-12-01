@@ -16,10 +16,9 @@ File Number C of X
 #define CARD
 
 #include <string>
-
+#include "carddeck.h"
 using std::string;
 
-class CardDeck;
 
 class Card {
     

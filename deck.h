@@ -32,9 +32,7 @@ public:
     
     Deck<T>();
     
-    virtual void shuffle() {
-        std::random_shuffle(elements.begin(), elements.end());
-    }
+    virtual void shuffle() {} =0;
     
 	virtual T getNext() {
         for (auto i = elements.begin(); i < elements.end()-1; ++i) {
