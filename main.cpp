@@ -102,7 +102,7 @@ int main() {
     std::cout << *bd;
     
     for (auto &i : players) {
-        showPlayerCards(i,bd);
+        showPlayerCards(i,*bd);
     }
     
     /*
@@ -121,7 +121,7 @@ int main() {
 }
 
 void showPlayerCards(const Player& p, const Board& b) {
-    std::cout << "Player " << i.getName() << ", press any key when you are ready to have 3 cards revealed to you." << std::endl;
+    std::cout << "Player " << p.getName() << ", press any key when you are ready to have 3 cards revealed to you." << std::endl;
     std::getchar();
     
 }
