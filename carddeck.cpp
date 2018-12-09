@@ -20,6 +20,7 @@ File Number 5 of X
 #include <vector>
 #include <algorithm> 
 #include <iostream>
+#include <ctime>
 #include "carddeck.h"
 #include "card.h"
 
@@ -90,7 +91,7 @@ CardDeck& CardDeck::make_CardDeck() {
 
 void CardDeck::shuffle() {
     if (isEmpty()) {return;}
-    std::srand(std::time(0));
+    std::srand(time(0));
 	std::random_shuffle(elements.begin(), elements.end());
     current = elements.begin();
 }

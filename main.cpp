@@ -26,7 +26,7 @@ File Number 1 of X
 #include "reward.h"
 #include "board.h"
 
-void showPlayerCards(const Player&, const Board&);
+void showPlayerCards(Player&, Board&);
 
 int main() {
     
@@ -82,46 +82,76 @@ int main() {
     
     string name;
     
+    Side nextAvailSide = Side::top;
+    
     while (players.size() != numPlayers) {
         std::cout << "Player " << players.size() + 1 << "'s name: ";
         std::cin >> name;
-        players.push_back(Player(name));
+        players.push_back(Player(name, nextAvailSide));
+        nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
+    
+    std::cout << "\nTotal registerd platers:\n" << std::endl;
     
     for (auto &i : players) {
         i.setActive(true);
+        std::cout << i;
     }
     
     std::cout << std::endl;
     
     // ************************ [TODO: Game implementation] ************************
     
-    std::cout << std::endl;
-    
     Board *bd = new Board();
     std::cout << *bd;
+    
+    std::cout << std::endl;
+    std::getchar();
     
     for (auto &i : players) {
         showPlayerCards(i,*bd);
     }
     
-    /*
-    std::cout << "Printing test board: \n" << std::endl; ;
     
-    Board *bd = new Board();
-    std::cout << *bd;
     
-    bd->reset();
-    
-    std::cout << *bd;
-    */
-    
-    std::cout << "\nProgram terminated. No further implementation has been provided (end of main() reached)." << std::endl;
+    std::cout << "\nProgram terminated. No further implementation has been provided (end of main() reached).\n" << std::endl;
     return 0;
 }
 
-void showPlayerCards(const Player& p, const Board& b) {
-    std::cout << "Player " << p.getName() << ", press any key when you are ready to have 3 cards revealed to you." << std::endl;
+void showPlayerCards(Player& p, Board& b) {
+    std::cout << "\nPlayer " << p.getName() << ", press ENTER when you are ready to have 3 cards revealed to you." << std::endl;
+    std::getchar();
+    switch(p.getSide()) {
+        case top:
+            b.turnFaceUp(Board::A, Board::Two);
+            b.turnFaceUp(Board::A, Board::Three);
+            b.turnFaceUp(Board::A, Board::Four);
+            break;
+        case bottom:
+            b.turnFaceUp(Board::E, Board::Two);
+            b.turnFaceUp(Board::E, Board::Three);
+            b.turnFaceUp(Board::E, Board::Four);
+            break;
+        case left:
+            b.turnFaceUp(Board::B, Board::One);
+            b.turnFaceUp(Board::C, Board::One);
+            b.turnFaceUp(Board::D, Board::One);
+            break;
+        case right:
+            b.turnFaceUp(Board::B, Board::Five);
+            b.turnFaceUp(Board::C, Board::Five);
+            b.turnFaceUp(Board::D, Board::Five);
+            break;
+        default:
+            break;
+    }
+    b.testPrinting();
+    
+    std::cout << b;
+    
+    std::cout << "\nPress ENTER when you are done." << std::endl;
     std::getchar();
     
+    b.reset(); // Turn cards back over
+    std::cout << b;
 }

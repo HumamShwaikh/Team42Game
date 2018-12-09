@@ -26,12 +26,7 @@ File Number 2 of X
 
 using std::string;
 
-enum Side {
-    top,
-    bottom,
-    left,
-    right
-};
+enum Side {top, bottom, left, right, end};
 
 class Player {
     
@@ -41,13 +36,13 @@ class Player {
     Player();
     
     // Constructor
-    Player(string);
+    Player(string, Side);
     
     // Get the player's name as a string
     string getName() const;
     
     // Get the player's Side
-    Side getSide();
+    Side getSide() const;
     
     // Set the player's Side
     void setSide(Side);
@@ -82,8 +77,6 @@ class Player {
     bool status;            // Stores player's status
     
     bool endOfGame;         // Changes display mode of player based on game status
-    
-    Side sideOfBoard;       // Stores player's location
     
     int rubies;             // Stores player's score
     
