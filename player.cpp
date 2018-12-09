@@ -28,8 +28,7 @@ Player::Player() {
     
 
 // Constructor
-Player::Player(string name) {
-    this->name = name;
+Player::Player(string name, Side side) : name(name), side(side) {
     rubies = 0;
     endOfGame = false;
 }
@@ -42,35 +41,35 @@ Player::Player(string name) {
 
 // Get the player's side of the board as a string
 string Player::getSideAsString() const {
-    string side;
-    switch(sideOfBoard) {   // Translates the enum to a string
+    string sideOfBoard;
+    switch(side) {   // Translates the enum to a string
         case top:
-        side = "top";
+        sideOfBoard = "top";
         break;
         case bottom:
-        side = "bottom";
+        sideOfBoard = "bottom";
         break;
         case left:
-        side = "left";
+        sideOfBoard = "left";
         break;
         case right:
-        side = "right";
+        sideOfBoard = "right";
         break;
         default:
-        side = "Side uninitialized";
+        sideOfBoard = "Side uninitialized";
         break;
     }
-    return side;
+    return sideOfBoard;
 }
 
 // Get the player's side of the board
-Side Player::getSide() {
+Side Player::getSide() const {
     return side;
 }
 
 // Set the player's side of the board
-void Player::setSide(Side sideOfBoard) {
-    this->sideOfBoard = sideOfBoard;
+void Player::setSide(Side side) {
+    this->side = side;
 }  
 
 // Function to set the active status of the player

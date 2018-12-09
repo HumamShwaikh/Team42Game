@@ -36,6 +36,8 @@ class Board {
     enum Number {One, Two, Three, Four, Five};
     enum Letter {A, B, C, D, E};
     
+    void testPrinting(); // Remove later
+    
     CardDeck cDeck;
     
     int faceUp[25];
@@ -62,6 +64,7 @@ class Board {
     int getRowIndex(const Letter&);
     int getColIndex(const Number&);
     int numIndex(const Letter& letter, const Number& number);
+    void update();
     
     string *board;
     

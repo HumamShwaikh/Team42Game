@@ -90,10 +90,13 @@ CardDeck& CardDeck::make_CardDeck() {
 }
 
 void CardDeck::shuffle() {
-    if (isEmpty()) {return;}
-    std::srand(std::time(0));
-	std::random_shuffle(elements.begin(), elements.end());
-    current = elements.begin();
+    if (isEmpty()) {
+        // do nothing
+    } else {
+        std::srand(time(0));
+	    std::random_shuffle(elements.begin(), elements.end());
+        current = elements.begin();
+    }
 }
 
 Card CardDeck::getNext() {
