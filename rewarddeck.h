@@ -22,14 +22,15 @@ File Number 5 of X
 
 #include "deck.h"
 #include "reward.h"
+#include "rewarddeck.h"
 
 class RewardDeck : Deck<Reward> {
 public:
 	//This function can be called anytime but has to always return the same deck
-	static RewardDeck& make_RewardDeck();
+	RewardDeck& make_RewardDeck();
     
 private:
-	const int MAX_SIZE = 25; //Not sure what this should be
+	const int MAX_SIZE = 7; //4 Reward(1) 2 Reward(2) 1 Reward(3) 1 Reward(4)
 	std::vector<Reward> elements;
 	    
     void shuffle();

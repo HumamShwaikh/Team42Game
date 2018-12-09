@@ -20,6 +20,7 @@ File Number 5 of X
 #include <vector>
 #include <algorithm> 
 #include <iostream>
+#include <ctime>
 #include "carddeck.h"
 #include "card.h"
 
