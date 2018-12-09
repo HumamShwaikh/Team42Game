@@ -26,6 +26,7 @@ File Number 1 of X
 #include "reward.h"
 #include "board.h"
 
+void showPlayerCards(const Player&, const Board&);
 
 int main() {
     
@@ -95,11 +96,14 @@ int main() {
     
     // ************************ [TODO: Game implementation] ************************
     
+    std::cout << std::endl;
+    
+    Board *bd = new Board();
+    std::cout << *bd;
+    
     for (auto &i : players) {
-        std::cout << "Player " << i << << std::endl;
+        showPlayerCards(i,bd);
     }
-     std::cout << "Player " <<  << << std::endl;
-    std::getchar();
     
     /*
     std::cout << "Printing test board: \n" << std::endl; ;
@@ -114,4 +118,10 @@ int main() {
     
     std::cout << "\nProgram terminated. No further implementation has been provided (end of main() reached)." << std::endl;
     return 0;
+}
+
+void showPlayerCards(const Player& p, const Board& b) {
+    std::cout << "Player " << i.getName() << ", press any key when you are ready to have 3 cards revealed to you." << std::endl;
+    std::getchar();
+    
 }
