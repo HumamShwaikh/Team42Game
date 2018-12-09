@@ -26,7 +26,7 @@ File Number 9 of X
 Board::Board() : cDeck(25) {
     
     for (int i=0; i<25; i++) {
-        faceUp[i] = 1;  // Set all cards face down
+        faceUp[i] = 0;  // Set all cards face down
     }
     
     board = new string[19];
@@ -344,7 +344,6 @@ void Board::update() {
                     board[i] += roundCardIndex[counter1+4](counter2+1) + " ";
                 }
             } else {
-                
                 if (!isFaceUp(iterLet,iterNum)) {
                     board[i] += "zzz ";
                 } else {
