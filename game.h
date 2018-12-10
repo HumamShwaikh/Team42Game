@@ -60,14 +60,14 @@ class Game {
     
     std::vector<Player>::iterator currentPlayer;
 
+    std::vector<Player> playersVect;
+
     
     private:
     
     int round;
     bool endOfGame;
     
-    std::vector<Player> playersVect;
-        
     friend class rules;
     
     friend std::ostream& operator<<(std::ostream& os, const Game& g) {

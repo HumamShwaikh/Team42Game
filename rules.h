@@ -28,6 +28,8 @@ class Rules {
     
     public:
     
+    Rules();
+    
     bool isValid(const Game&);
     
     bool gameOver(const Game&);
@@ -35,8 +37,6 @@ class Rules {
     bool roundOver(const Game&);
     
     const Player& getNextPlayer(const Game&);
-    
-    
 };
 
 #endif
