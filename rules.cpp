@@ -2,6 +2,10 @@
 #include <vector>
 #include "rules.h"
 
+Rules::Rules() {
+    
+}
+
 bool Rules::isValid(const Game& g) { 
     //TODO bool isValid(const Game&) returns true is previous and current card match; 
     //false otherwise. 
@@ -9,13 +13,15 @@ bool Rules::isValid(const Game& g) {
 }
 
 bool Rules::gameOver(const Game& g) { 
-    //TODO bool gameOver(const Game&) returns true if the number of rounds has reached 7. 
-    return false;
+    return g->getRound() == 7;
 }
 
 bool Rules::roundOver(const Game& g) {
-    //TODO bool roundOver(const Game&) returns true if there is only one active Player left. 
-    return true;
+    int numActive == 0;
+    for (auto &i : g.playersVect) {
+        if i.isActive() numActive++;
+    }
+    return (numActive == 1);
 }
 
 const Player& Rules::getNextPlayer(const Game& g) {

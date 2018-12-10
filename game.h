@@ -58,13 +58,12 @@ class Game {
     
     Board *board;
     
+    std::vector<Player> playersVect;
     
     private:
     
     int round;
     bool endOfGame;
-    
-    std::vector<Player> playersVect;
     
     std::vector<Player>::iterator currentPlayer;
     

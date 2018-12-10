@@ -26,6 +26,7 @@ File Number 1 of X
 #include "reward.h"
 #include "board.h"
 #include "game.h"
+#include "rules.h"
 
 void showPlayerCards(Player&, Board&);
 
@@ -34,6 +35,7 @@ int main() {
     //std::vector<Player> players;
     
     Game *g = new Game();
+    Rules *r;
     
     // ============================ Get Game Mode ============================
     
@@ -94,7 +96,7 @@ int main() {
         nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
         
-    //g.currentPlayer = g.players.begin();
+    //g->currentPlayer = g.players.begin();
 
     std::cout << "\nTotal registerd platers:\n" << std::endl;
     
