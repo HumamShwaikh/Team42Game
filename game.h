@@ -62,7 +62,7 @@ class Game {
     
     static std::vector<Player> players;
     
-    Player *current;
+    Player *currentPlayer;
     
     friend class rules;
     

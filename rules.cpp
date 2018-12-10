@@ -1,3 +1,5 @@
+#include <cstdlib>
+#include <vector>
 #include "rules.h"
 
 bool Rules::isValid(const Game& g) { 
@@ -18,6 +20,9 @@ bool Rules::roundOver(const Game& g) {
 
 const Player& Rules::getNextPlayer(const Game& g) {
     //TODO 
-    auto i = g.players
-    return (g.players);
+    g.currentPlayer++;
+    if (currentPlayer == nullptr) {
+        currentPlayer == players.begin();
+    }
+    return g.currentPlayer;
 }

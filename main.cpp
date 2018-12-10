@@ -91,7 +91,9 @@ int main() {
         players.push_back(Player(name, nextAvailSide));
         nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
-    
+        
+    currentPlayer = players.begin();
+
     std::cout << "\nTotal registerd platers:\n" << std::endl;
     
     for (auto &i : players) {
@@ -100,7 +102,7 @@ int main() {
     }
     
     std::cout << std::endl;
-    
+        
     // ************************ [TODO: Game implementation] ************************
     
     Board *bd = new Board();
