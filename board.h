@@ -56,9 +56,12 @@ class Board {
     
     private:
     
-    // Enumerator converters
     static char getRow(const Letter&);
     static char getCol(const Number&);
+    
+    friend class Game;
+    
+    // Enumerator converters
     int getRowIndex(const Letter&);
     int getColIndex(const Number&);
     int numIndex(const Letter& letter, const Number& number);

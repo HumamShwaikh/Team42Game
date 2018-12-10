@@ -33,6 +33,8 @@ int main() {
     
     std::vector<Player> players;
     
+    Game *g = new Game();
+    
     // ============================ Get Game Mode ============================
     
     std::cout << std::endl;
@@ -92,25 +94,30 @@ int main() {
         nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
     
+    for (auto &i : players) {
+        i.setActive(true);
+    }
+    
+    for (auto &i : players) {
+        g->addPlayer(i);
+    }
+    
     std::cout << "\nTotal registerd platers:\n" << std::endl;
     
     for (auto &i : players) {
         i.setActive(true);
-        std::cout << i;
     }
     
-    std::cout << std::endl;
+    std::cout << *g;
+    
     
     // ************************ [TODO: Game implementation] ************************
-    
-    Board *bd = new Board();
-    std::cout << *bd;
     
     std::cout << std::endl;
     std::getchar();
     
     for (auto &i : players) {
-        showPlayerCards(i,*bd);
+        showPlayerCards(i,*(g->board));
     }
     
     

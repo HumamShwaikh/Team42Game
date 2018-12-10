@@ -27,6 +27,7 @@ File Number 10 of X
 Game::Game() {
     round = 0;
     board = new Board();
+    endOfGame = false;
 }
 
 int Game::getRound() {
@@ -40,15 +41,21 @@ void Game::nextRound() {
 }
 
 void Game::addPlayer(const Player& p) {
-    // ************************ TODO: Check if player is already contained **********************
-    // *************************** If yes, then update instead of adding  ***********************
-    players.push_back(p);
+    bool flag = false;
+    for (auto &i : playersVect) { // Update player that already exists
+        if (i.getName().compare(p.getName())) {
+            flag = true;
+            i.setSide(p.getSide());
+            i.setActive(p.isActive());
+        }
+    } // Otherwise add new member
+    if (!flag) this->playersVect.push_back(p);
 }
 
 // No checks for this one. Will return garbage if player does not exist (fix?)
 Player& Game::getPlayer(Side side) {
-    auto p = players.begin();
-    while (p != players.end()) {
+    auto p = playersVect.begin();
+    while (p != playersVect.end()) {
         if (p->getSide() == side) break;
         ++p;
     }
@@ -57,23 +64,23 @@ Player& Game::getPlayer(Side side) {
 
 // Change return type to <code>Card*</code> when game has Card members
 void Game::getPreviousCard() const {
-    
+
 }
 
 // Change return type to <code>Card*</code> when game has Card members
 void Game::getCurrentCard() const {
-    
+
 }
 
 void Game::setCurrentCard(const Card* c) {
-    
+
 }
 
 // Change return type to <code>Card*</code> when game has Card members
 void Game::getCard(const Board::Letter& letter, const Board::Number& number) {
-    
+
 }
 
 void Game::setCard(const Board::Letter& letter, const Board::Number& number, Card* c) {
-    
+
 }

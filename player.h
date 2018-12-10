@@ -26,7 +26,7 @@ File Number 2 of X
 
 using std::string;
 
-enum Side {top, bottom, left, right, end};
+enum Side {top, right, bottom, left, end};
 
 class Player {
     
@@ -51,7 +51,7 @@ class Player {
     void setActive(bool);
     
     // Get the current status of the player
-    bool isActive();
+    bool isActive() const;
     
     // Get the current score of the player
     int getNRubies() const;
@@ -62,13 +62,13 @@ class Player {
     // Set Player's display mode
     void setDisplayMode(bool);
     
-    private:
-    
-    // Return the player's status (no public use)
-    string getStatus() const;
-    
     // Convert Side enum to its string value
     string getSideAsString() const;
+    
+    // Return the player's status as a string (no public use)
+    string getStatus() const;
+    
+    private:
     
     string name;            // Stores player's name
     

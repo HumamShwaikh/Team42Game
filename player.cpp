@@ -78,7 +78,7 @@ void Player::setActive(bool active) {
 }
 
 // Get the current status of the player
-bool Player::isActive() {
+bool Player::isActive() const {
     return status;
 }
 
