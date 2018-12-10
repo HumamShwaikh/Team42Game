@@ -36,8 +36,6 @@ class Board {
     enum Number {One, Two, Three, Four, Five};
     enum Letter {A, B, C, D, E};
     
-    void testPrinting(); // Remove later
-    
     CardDeck cDeck;
     
     int faceUp[25];

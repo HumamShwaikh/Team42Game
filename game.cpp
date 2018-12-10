@@ -24,13 +24,18 @@ File Number 10 of X
 #include "card.h"
 #include "deck.h"
 
+Game::Game() {
+    round = 0;
+    board = new Board();
+}
+
 int Game::getRound() {
     return round;
 }
 
 void Game::nextRound() {
     ++round;
-    board.reset();
+    board->reset();
     // TODO: finish
 }
 

@@ -25,6 +25,7 @@ File Number 1 of X
 #include "card.h"
 #include "reward.h"
 #include "board.h"
+#include "game.h"
 
 void showPlayerCards(Player&, Board&);
 
@@ -145,7 +146,6 @@ void showPlayerCards(Player& p, Board& b) {
         default:
             break;
     }
-    b.testPrinting();
     
     std::cout << b;
     
