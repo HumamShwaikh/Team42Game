@@ -62,6 +62,10 @@ class Game {
     
     static std::vector<Player> players;
     
+    Player *current;
+    
+    friend class rules;
+    
     friend std::ostream& operator<<(std::ostream& os, const Game& g) {
         string st = "";
         os << st;
