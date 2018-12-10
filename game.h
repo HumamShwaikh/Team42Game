@@ -58,6 +58,8 @@ class Game {
     
     Board *board;
     
+    std::vector<Player>::iterator currentPlayer;
+
     
     private:
     
@@ -65,9 +67,7 @@ class Game {
     bool endOfGame;
     
     std::vector<Player> playersVect;
-    
-    std::vector<Player>::iterator currentPlayer;
-    
+        
     friend class rules;
     
     friend std::ostream& operator<<(std::ostream& os, const Game& g) {

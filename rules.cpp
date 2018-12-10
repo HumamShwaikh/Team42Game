@@ -21,8 +21,8 @@ bool Rules::roundOver(const Game& g) {
 const Player& Rules::getNextPlayer(const Game& g) {
     //TODO 
     g.currentPlayer++;
-    if (currentPlayer == nullptr) {
-        currentPlayer == players.begin();
+    if (g.currentPlayer == nullptr) {
+        g.currentPlayer == g.playersVect.begin();
     }
     return g.currentPlayer;
 }
