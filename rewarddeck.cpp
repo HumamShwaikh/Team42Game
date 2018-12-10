@@ -45,8 +45,8 @@ void RewardDeck::shuffle() {
     if (isEmpty()) {
         // do nothing
     } else {
-        std::srand(time(0));
-	    std::random_shuffle(elements.begin(), elements.end());
+        //std::srand(time(0));
+	    //std::random_shuffle(elements.begin(), elements.end());
         current = elements.begin();
     }
 

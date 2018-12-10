@@ -22,7 +22,6 @@ File Number 5 of X
 
 #include "deck.h"
 #include "reward.h"
-#include "rewarddeck.h"
 
 class RewardDeck : Deck<Reward> {
 public:
@@ -31,13 +30,15 @@ public:
     
 private:
 	const int MAX_SIZE = 7; //4 Reward(1) 2 Reward(2) 1 Reward(3) 1 Reward(4)
-	std::vector<Reward> elements;
 	    
     void shuffle();
     
 	Reward getNext();
 	
     bool isEmpty();
+    
+    RewardDeck& operator=(const RewardDeck&); // Private copy constructor
+
     
     ~RewardDeck();
     
