@@ -25,10 +25,13 @@ File Number 7 of X
 #include "card.h"
 #include "board.h"
 #include <vector>
+#include <iostream>
 
 class Game {
     
     public:
+    
+    Game();
     
     int getRound();
     
@@ -55,9 +58,15 @@ class Game {
     
     int round;
     
-    Board board;
+    Board *board;
     
-    std::vector<Player> players;
+    static std::vector<Player> players;
+    
+    friend std::ostream& operator<<(std::ostream& os, const Game& g) {
+        string st = "";
+        os << st;
+        return os;
+    }
     
 };
 

@@ -182,6 +182,7 @@ char Board::getCol(const Number& number) {
 }
 
 void Board::update() {
+    cDeck.current = cDeck.elements.begin();
     for (int i=0; i<24; i++) {
         roundCardIndex[i] = cDeck.getNext();
     }
@@ -197,6 +198,7 @@ void Board::update() {
         if (i%4 == 3) {
             board[i] = "                   "; // Empty rows placed between cards and at end of board
             counter1 += 5;
+            iterLet = static_cast<Letter>(iterLet + 1);
         } else if (i==8 || i==9 || i==10) { // For the middle rows
             if (i%4 == 0) {
                 
@@ -377,13 +379,6 @@ void Board::update() {
         }
         if (i==11) --counter1;
     }
-}
-
-void Board::testPrinting() {
-    for (int i=0; i<25; i++) {
-            std::cout << faceUp[i] << " ";
-        }
-    std::cout << std::endl;
 }
 
 Board::~Board() {
