@@ -21,7 +21,7 @@ File Number 6 of X
 #ifndef RULES
 #define RULES
 
-class Game;
+#include <game.h>
 
 class Rules {
     
@@ -33,7 +33,7 @@ class Rules {
     
     bool roundOver(const Game&);
     
-    const Player& Rules::getNextPlayer(const Game&);
+    const Player& getNextPlayer(const Game&);
     
 };
 
