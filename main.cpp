@@ -92,7 +92,7 @@ int main() {
         nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
         
-    currentPlayer = players.begin();
+    g.currentPlayer = g.players.begin();
 
     std::cout << "\nTotal registerd platers:\n" << std::endl;
     
