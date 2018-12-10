@@ -17,6 +17,7 @@ Email:   hshwa039@uottawa.ca
 File Number 5 of X
 
 ******************************/
+
 #ifndef REWARDDECK
 #define REWARDDECK
 
@@ -24,22 +25,23 @@ File Number 5 of X
 #include "reward.h"
 
 class RewardDeck : Deck<Reward> {
-public:
-	//This function can be called anytime but has to always return the same deck
-	static RewardDeck& make_RewardDeck();
+    public:
     
-private:
-	const int MAX_SIZE = 25; //Not sure what this should be
-	std::vector<Reward> elements;
-	    
+    RewardDeck(int size);
+    virtual ~RewardDeck();
+    
+	RewardDeck& make_RewardDeck();
+    
+    private:
+    
+    int size;
+    
     void shuffle();
-    
 	Reward getNext();
-	
     bool isEmpty();
+    RewardDeck& operator=(const RewardDeck&); // Private copy constructor
     
-    ~RewardDeck();
-    
+    friend class Board;
 };
 
 #endif

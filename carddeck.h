@@ -18,7 +18,6 @@ File Number 5 of X
 
 ******************************/
 
-
 #ifndef CARDDECK
 #define CARDDECK
 

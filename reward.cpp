@@ -20,8 +20,7 @@ File Number 5 of X
 
 #include "reward.h"
 
-Reward::Reward(int value) {
-    this->value = value;
+Reward::Reward(int value) : value(value) {
 }
 
 int Reward::getRewardValue() const {

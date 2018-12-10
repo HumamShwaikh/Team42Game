@@ -18,41 +18,54 @@ File Number 5 of X
 
 ******************************/
 #include <vector>
-#include <cstdlib>
+#include <algorithm> 
+#include <iostream>
+#include <ctime>
 #include "rewarddeck.h"
 #include "reward.h"
 
-static RewardDeck& make_RewardDeck(){
+RewardDeck::RewardDeck(int size) : size(size) {
+    this->make_RewardDeck();
+    current = elements.begin();
+}
+
+RewardDeck& RewardDeck::make_RewardDeck(){
     // If a deck doesn't exist, it will make 1 of every Reward, and then shuffle, otherwise return the current deck
-	if (elements == nullptr){
-		for (int i = 0; i < MAX_SIZE; i++) {
-		this->elements.push_back({std::rand() % 100 + 1});
-		}
+	if (elements.empty()){
+        this->elements.push_back(Reward(1));
+        this->elements.push_back(Reward(1));
+        this->elements.push_back(Reward(1));
+        this->elements.push_back(Reward(1));
+        this->elements.push_back(Reward(2));
+        this->elements.push_back(Reward(2));
+        this->elements.push_back(Reward(3));
+        this->elements.push_back(Reward(4));
+        
+        this->shuffle();
 	}
-	return this;
+	return *this;
 }
 
-void shuffle() {
-	std::random_shuffle(elements.begin(), elements.end());
+void RewardDeck::shuffle() {
+    if (isEmpty()) {
+        // do nothing
+    } else {
+        //std::srand(time(0));
+	    //std::random_shuffle(elements.begin(), elements.end());
+        current = elements.begin();
+    }
+
 }
 
-Reward getNext() {
-	if (elements.size() > 0) {
-		return elements.pop_back();
-	}
-	return nullptr;
+Reward RewardDeck::getNext() {
+    ++current;
+    return *current;
 }
 
-bool isEmpty() {
+bool RewardDeck::isEmpty() {
 	return elements.empty();
 }
 
-~RewardDeck() {
-	auto temp = elements.begin();
-	for (auto i = elements.begin(); i < elements.end()-1; ++i) {
-		delete temp;
-		temp = i;
-	}
-	delete temp;
-	delete elements;
+RewardDeck::~RewardDeck() {
+
 }
