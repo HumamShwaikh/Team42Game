@@ -42,9 +42,12 @@ RewardDeck& RewardDeck::make_RewardDeck(){
 }
 
 void RewardDeck::shuffle() {
-    if (!isEmpty()) {
-        std::srand(std::time(0));
-        std::random_shuffle(elements.begin(), elements.end());
+    if (isEmpty()) {
+        // do nothing
+    } else {
+        std::srand(time(0));
+	    std::random_shuffle(elements.begin(), elements.end());
+        current = elements.begin();
     }
 
 }
@@ -60,11 +63,5 @@ bool RewardDeck::isEmpty() {
 }
 
 RewardDeck::~RewardDeck() {
-	auto temp = elements.begin();
-	for (auto i = elements.begin(); i < elements.end()-1; ++i) {
-		delete temp;
-		temp = i;
-	}
-	delete temp;
-	delete elements;
+
 }
