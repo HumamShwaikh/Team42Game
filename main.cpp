@@ -31,7 +31,7 @@ void showPlayerCards(Player&, Board&);
 
 int main() {
     
-    std::vector<Player> players;
+    //std::vector<Player> players;
     
     Game *g = new Game();
     
@@ -87,38 +87,35 @@ int main() {
     
     Side nextAvailSide = Side::top;
     
-    while (players.size() != numPlayers) {
-        std::cout << "Player " << players.size() + 1 << "'s name: ";
+    while (g->numPlayers() != numPlayers) {
+        std::cout << "Player " << g->numPlayers() + 1 << "'s name: ";
         std::cin >> name;
-        players.push_back(Player(name, nextAvailSide));
+        g->addPlayer(Player(name, nextAvailSide));
         nextAvailSide = static_cast<Side>(nextAvailSide + 1);
     }
-    
-    for (auto &i : players) {
-        i.setActive(true);
-    }
-    
-    for (auto &i : players) {
-        g->addPlayer(i);
-    }
-    
+        
+    //g.currentPlayer = g.players.begin();
+
     std::cout << "\nTotal registerd platers:\n" << std::endl;
     
-    for (auto &i : players) {
-        i.setActive(true);
-    }
     
     std::cout << *g;
     
+    std::cout << std::endl;
+        
+    // ************************ [TODO: Game implementation] ************************
     
     // ************************ [TODO: Game implementation] ************************
     
     std::cout << std::endl;
     std::getchar();
     
+    // CHANGE TO NEXT() PLAYER
+    /*
     for (auto &i : players) {
         showPlayerCards(i,*(g->board));
     }
+    */
     
     
     

@@ -40,6 +40,10 @@ void Game::nextRound() {
     // TODO: finish
 }
 
+int Game::numPlayers() {
+    return playersVect.size();
+}
+
 void Game::addPlayer(const Player& p) {
     bool flag = false;
     for (auto &i : playersVect) { // Update player that already exists
